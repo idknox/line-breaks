@@ -10,10 +10,14 @@ describe "line breaker" do
   end
 
   it "minimizes lines to 20 characters" do
+    file = File.open("./data/I knew them before they were popular.txt", "r")
+    Textformatter.new(file).format_lines
+
     file = File.open("./data/awesome-sauce.txt", "r")
-    file.each_line do |line|
-      linebreaker = Linebreaker.new(line)
-      puts linebreaker.break
-    end
+    Textformatter.new(file).format_lines
+
+    file = File.open("./data/what!?.txt", "r")
+    Textformatter.new(file).format_lines
+
   end
 end

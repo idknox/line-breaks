@@ -10,15 +10,15 @@ class Linebreaker
     line = @line.split("")
 
     line.each_with_index do |char, i|
-      if char_count == 20 && line[i+1] == " "
+      if char_count == 80 && line[i+1] == " "
         line.delete_at(i+1)
         line.insert(i+1, "\n")
         char_count = 1
-      elsif char_count == 20 && line[i-1] == " "
+      elsif char_count == 80 && line[i-1] == " "
         line.delete_at(i-1)
         line.insert(i-1, "\n")
         char_count = -1
-      elsif char_count == 20
+      elsif char_count == 80
         insert_i = line[0..i].rindex(" ")
         line.delete_at(insert_i)
         line.insert(insert_i, "\n")
